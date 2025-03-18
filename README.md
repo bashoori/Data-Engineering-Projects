@@ -8,6 +8,7 @@ demonstrate the success of this code by running a query on the database table to
 You must create a Python code 'etl_project_gdp.py' that performs all the required tasks.
 
 Objectives:
+
 Complete the following tasks for this project
 
 Write a data extraction function to retrieve the relevant information from the required URL.
