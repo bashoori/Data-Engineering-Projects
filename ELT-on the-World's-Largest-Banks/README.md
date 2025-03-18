@@ -31,3 +31,6 @@ Write a function to log the progress of the code.
 While executing the data initialization commands and function calls, maintain appropriate log entries.
 
 Data'URL: https://web.archive.org/web/20230908091635 /https://en.wikipedia.org/wiki/List_of_largest_banks
+
+Exchange rate CSV path:
+https://cf-courses-data.s3.us.cloud-object-storage.appdomain.cloud/IBMSkillsNetwork-PY0221EN-Coursera/labs/v2/exchange_rate.csv
