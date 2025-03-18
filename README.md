@@ -31,10 +31,3 @@ Below is an overview of the key directories and files:
    - A **starter template** for building ETL pipelines.
    - Helps standardize the process for different data engineering tasks.
 
-## 🚀 Getting Started
-
-To clone this repository and start working with the projects:
-
-```sh
-git clone https://github.com/YOUR_GITHUB_USERNAME/YOUR_REPO_NAME.git
-cd YOUR_REPO_NAME
