@@ -1,4 +1,9 @@
-Create an automated script that can extract the list of all countries in order of their GDPs in billion USDs (rounded to 2 decimal places), as logged by the International Monetary Fund (IMF). Since IMF releases this evaluation twice a year, this code will be used by the organization to extract the information as it is updated.
+In this project, I created a complete ETL pipeline for accessing data from a website and processing it to meet the requirements.
+
+Project Scenario:
+
+An international firm that is looking to expand its business in different countries across the world wants to create an automated script that can extract the list of all countries in order of their GDPs in billion USDs (rounded to 2 decimal places), as logged by the International Monetary Fund (IMF). Since IMF releases this evaluation twice a year, this code will be used by the organization to extract the information as it is updated.
+
 The required data seems to be available on the URL mentioned below:
 'https://web.archive.org/web/20230902185326/https://en.wikipedia.org/wiki/List_of_countries_by_GDP_%28nominal%29'
 
@@ -9,14 +14,14 @@ You must create a Python code 'etl_project_gdp.py' that performs all the require
 
 Objectives:
 
-1.Complete the following tasks for this project
+1. Complete the following tasks for this project
 
-2.Write a data extraction function to retrieve the relevant information from the required URL.
+2. Write a data extraction function to retrieve the relevant information from the required URL.
 
-3.Transform the available GDP information into 'Billion USD' from 'Million USD'.
+3. Transform the available GDP information into 'Billion USD' from 'Million USD'.
 
-4.Load the transformed information to the required CSV file and as a database file.
+4. Load the transformed information to the required CSV file and as a database file.
 
-5.Run the required query on the database.
+5. Run the required query on the database.
 
-6.Log the progress of the code with appropriate timestamps.
+6. Log the progress of the code with appropriate timestamps.
