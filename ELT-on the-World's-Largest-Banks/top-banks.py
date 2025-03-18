@@ -11,12 +11,9 @@ from datetime import datetime
 
 
 def extract(url, table_attribs):
-    '''Extract the tabular information from the given URL under the heading 'By market capitalization' and save it to a dataframe.
-      a. Inspect the webpage and identify the position and pattern of the tabular information in the HTML code
-      b. Write the code for a function extract() to perform the required data extraction.
-      c. Execute a function call to extract() to verify the output.
-      This function extracts the required information from the website and saves it to a dataframe. 
-      The function returns the dataframe for further processing. '''
+    ''' This function aims to extract the required
+    information from the website and save it to a data frame. The
+    function returns the data frame for further processing. '''
 
     page = requests.get(url).text
     data = BeautifulSoup(page,'html.parser')
@@ -37,17 +34,13 @@ def extract(url, table_attribs):
     return df
 
 def transform(df):
-    ''' This function converts the GDP information from Currency
-    format to float value, transforms the information of GDP from
-    USD (Millions) to USD (Billions) rounding to 2 decimal places.
-    The function returns the transformed dataframe.'''
+    ''' This function accesses the CSV file for exchange rate
+    information, and adds three columns to the data frame, each
+    containing the transformed version of Market Cap column to
+    respective currencies'''
     
    # Load the exchange rate data
     exchange_rates = pd.read_csv(exchange_rates_path)
-
-    # Display exchange rate data to ensure correctness
-    #print("Exchange Rate Data:\n", exchange_rates)
-    #bank_list = df["MC_USD_Billion"].tolist()
 
     # Extract relevant exchange rates
     usd_to_gbp = exchange_rates.loc[exchange_rates["Currency"] == "GBP", "Rate"].values[0]
@@ -59,21 +52,17 @@ def transform(df):
     df["MC_EUR_Billion"] = (df["MC_USD_Billion"].astype(float) * usd_to_eur).round(2)
     df["MC_INR_Billion"] = (df["MC_USD_Billion"].astype(float) * usd_to_inr).round(2)
 
-    #bank_list = [float("".join(x.split(','))) for x in bank_list]
-    #bank_list = [np.round(x/1000,2) for x in bank_list] 
-    #df["MC_USD_Billion"] = bank_list
-    #df=df.rename(columns = {"MC_USD_Billion":"MC_USD_Billion"})
     return df
 
 def load_to_csv(df, csv_path):
-    ''' This function saves the final dataframe as a `CSV` file 
-    in the provided path. Function returns nothing.'''
+    ''' This function saves the final data frame as a CSV file in
+    the provided path. Function returns nothing.'''
 
     df.to_csv(csv_path)
 
 def load_to_db(df, sql_connection, table_name):
-    ''' This function saves the final dataframe as a database table
-    with the provided name. Function returns nothing.'''
+    ''' This function saves the final data frame to a database
+    table with the provided name. Function returns nothing.'''
 
     df.to_sql(table_name, sql_connection, if_exists='replace', index=False)
 
@@ -88,8 +77,9 @@ def run_query(query_statement, sql_connection):
 
 
 def log_progress(message):
-    '''Write a function log_progress() to log the progress of the code at different stages in a file code_log.txt. Use the list of log points provided to create log entries as every stage of the code.'''
-    ''' This function logs the mentioned message at a given stage of the code execution to a log file. Function returns nothing'''
+    ''' This function logs the mentioned message of a given stage of the
+    code execution to a log file. Function returns nothing'''
+
     timestamp_format = '%Y-%h-%d-%H:%M:%S' # Year-Monthname-Day-Hour-Minute-Second 
     now = datetime.now() # get current timestamp 
     timestamp = now.strftime(timestamp_format) 
