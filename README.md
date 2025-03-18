@@ -9,14 +9,14 @@ You must create a Python code 'etl_project_gdp.py' that performs all the require
 
 Objectives:
 
-Complete the following tasks for this project
+1.Complete the following tasks for this project
 
-Write a data extraction function to retrieve the relevant information from the required URL.
+2.Write a data extraction function to retrieve the relevant information from the required URL.
 
-Transform the available GDP information into 'Billion USD' from 'Million USD'.
+3.Transform the available GDP information into 'Billion USD' from 'Million USD'.
 
-Load the transformed information to the required CSV file and as a database file.
+4.Load the transformed information to the required CSV file and as a database file.
 
-Run the required query on the database.
+5.Run the required query on the database.
 
-Log the progress of the code with appropriate timestamps.
+6.Log the progress of the code with appropriate timestamps.
