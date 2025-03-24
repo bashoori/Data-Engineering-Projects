@@ -98,6 +98,7 @@ SELECT COUNT(*) FROM sales_data;
 ```sql
 CREATE INDEX ts ON sales_data (timestamp);
 SHOW INDEXES FROM sales_data;
+```
 
 ## ⚙️ Bash Automation Script
 
