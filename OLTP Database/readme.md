@@ -59,13 +59,47 @@ An e-commerce company needs to manage customer orders, product details, and tran
 
 ---
 
+## 🛠️ Setup Instructions
+
+Follow the steps below to create the database, design the schema, load data, run SQL queries, and automate exports using a Bash script.
+
+---
+
+### 📁 Step 1: Create the Database and Table
+
+```sql
+-- Create the database
+CREATE DATABASE sales;
+USE sales;
+
+-- Design the sales_data table
+CREATE TABLE sales_data (
+    product_id INT,
+    customer_id INT,
+    price DECIMAL(10,2),
+    quantity INT,
+    timestamp DATETIME
+);
+```
+📥 Load the Data
+	•	Import the oltpdata.csv file into the sales_data table using the Import tab in phpMyAdmin.
+
+sql```
+USE sales;
+SHOW TABLES;
+SELECT COUNT(*) FROM sales_data;
+
+
+
 ## ⚙️ Admin Automation Tasks
 
 ### ✅ Create an Index
 
 ```sql
 CREATE INDEX ts ON sales_data (timestamp);
+SHOW INDEXES FROM sales_data;
 
+⚙️ Bash Automation Script
 
 #!/bin/bash
 # File: datadump.sh
@@ -79,6 +113,11 @@ OUTPUT="sales_data.sql"
 mysqldump -u $USER -p$PASSWORD $DATABASE $TABLE > $OUTPUT
 echo "Export completed. File saved as $OUTPUT"
 ```
+
+Make sure to give the script executable permissions using:
+chmod +x datadump.sh
+
+
 
 
 ## 🖼️ Screenshots
