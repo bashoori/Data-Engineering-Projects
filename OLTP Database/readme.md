@@ -78,8 +78,10 @@ OUTPUT="sales_data.sql"
 
 mysqldump -u $USER -p$PASSWORD $DATABASE $TABLE > $OUTPUT
 echo "Export completed. File saved as $OUTPUT"
+```
 
- Screenshots
+
+Screenshots
 
 Screenshots included in this repo:
 	•	importdata.jpg: Import status from phpMyAdmin
