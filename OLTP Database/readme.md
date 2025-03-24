@@ -102,6 +102,7 @@ SHOW INDEXES FROM sales_data;
 
 ## ⚙️ Bash Automation Script
 
+```sql
 #!/bin/bash
 # File: datadump.sh
 
