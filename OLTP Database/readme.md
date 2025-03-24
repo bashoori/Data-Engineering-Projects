@@ -85,7 +85,7 @@ CREATE TABLE sales_data (
 
 Import the oltpdata.csv file into the sales_data table using the Import tab in phpMyAdmin.
 
-sql```
+```sql
 USE sales;
 SHOW TABLES;
 SELECT COUNT(*) FROM sales_data;
