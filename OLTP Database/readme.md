@@ -81,11 +81,19 @@ echo "Export completed. File saved as $OUTPUT"
 ```
 
 
-Screenshots
+## 🖼️ Screenshots
 
-Screenshots included in this repo:
-	•	importdata.jpg: Import status from phpMyAdmin
-	•	listtables.jpg: Tables listed in the sales database
-	•	salesrows.jpg: Output of SELECT COUNT(*)
-	•	listindexes.jpg: Index list from sales_data
-	•	exportdata.jpg: Export confirmation via Bash script
+### 📌 Import Status
+![Import Data](./importdata.jpg)
+
+### 📌 List of Tables
+![List Tables](./listtables.jpg)
+
+### 📌 Record Count
+![Sales Rows](./salesrows.jpg)
+
+### 📌 Indexes in Table
+![List Indexes](./listindexes.jpg)
+
+### 📌 Export via Bash
+![Export Data](./exportdata.jpg)
