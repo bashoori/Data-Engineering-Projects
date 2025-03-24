@@ -81,15 +81,15 @@ CREATE TABLE sales_data (
     timestamp DATETIME
 );
 ```
-📥 Load the Data
-	•	Import the oltpdata.csv file into the sales_data table using the Import tab in phpMyAdmin.
+## 📥 Load the Data
+
+Import the oltpdata.csv file into the sales_data table using the Import tab in phpMyAdmin.
 
 sql```
 USE sales;
 SHOW TABLES;
 SELECT COUNT(*) FROM sales_data;
-
-
+```
 
 ## ⚙️ Admin Automation Tasks
 
@@ -99,7 +99,7 @@ SELECT COUNT(*) FROM sales_data;
 CREATE INDEX ts ON sales_data (timestamp);
 SHOW INDEXES FROM sales_data;
 
-⚙️ Bash Automation Script
+## ⚙️ Bash Automation Script
 
 #!/bin/bash
 # File: datadump.sh
