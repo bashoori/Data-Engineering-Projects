@@ -54,6 +54,7 @@ df
 df = df.transform(func = lambda x : x + 10)
 df
 
+#Now we will use DataFrame.transform() function to find the square root to each element of the dataframe.
 result = df.transform(func = ['sqrt'])
 result
 
