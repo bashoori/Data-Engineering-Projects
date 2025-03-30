@@ -45,6 +45,16 @@ file pointer – pointer of the file opened in write or append mode.
 with open('person.json', 'w') as f:  # writing JSON object
     json.dump(person, f)
 
+
+'''
+json.dumps() that helps in converting a dictionary to a JSON object.
+
+It takes two parameters:
+
+dictionary – name of the dictionary which should be converted to JSON object.
+indent – defines the number of units for indentation
+'''
+
 # Serializing json  
 json_object = json.dumps(person, indent = 4) 
   
@@ -55,7 +65,16 @@ with open("sample.json", "w") as outfile:
 print(json_object)
 
 #------------------------Reading JSON to a File---------------------------------
-  
+  '''
+  Using json.load()
+The JSON package has json.load() function that loads the json content from a json file into a dictionary.
+
+It takes one parameter:
+
+File pointer : A file pointer that points to a JSON file.
+'''
+
+
 # Opening JSON file 
 with open('sample.json', 'r') as openfile: 
   
