@@ -1,0 +1,79 @@
+📘 Cheat Sheet: APIs and Data Collection
+==================================================
+
+🔹 **Accessing element attribute**
+   - Description: Access the value of a specific attribute of an HTML element
+   - Code Example: `attribute = element["attribute"]`
+
+🔹 **BeautifulSoup()**
+   - Description: Parse the HTML content using BeautifulSoup
+   - Code Example: `soup = BeautifulSoup(html, "html.parser")`
+
+🔹 **delete()**
+   - Description: Send a DELETE request to remove a resource
+   - Code Example: `response = requests.delete(url)`
+
+🔹 **find()**
+   - Description: Find the first HTML element matching the tag and attributes
+   - Code Example: `element = soup.find(tag, attrs)`
+
+🔹 **find_all()**
+   - Description: Find all HTML elements matching the tag and attributes
+   - Code Example: `elements = soup.find_all(tag, attrs)`
+
+🔹 **findChildren()**
+   - Description: Find all child elements of an HTML element
+   - Code Example: `children = element.findChildren()`
+
+🔹 **get()**
+   - Description: Perform a GET request to retrieve data
+   - Code Example: `response = requests.get(url)`
+
+🔹 **Headers**
+   - Description: Include custom headers in the request
+   - Code Example: `headers = {"Authorization": "Bearer YOUR_TOKEN"}`
+
+🔹 **Import Libraries**
+   - Description: Import necessary Python libraries for web scraping
+   - Code Example: `from bs4 import BeautifulSoup`
+
+🔹 **json()**
+   - Description: Parse JSON data from response
+   - Code Example: `data = response.json()`
+
+🔹 **next_sibling()**
+   - Description: Find the next sibling element in the DOM
+   - Code Example: `sibling = element.find_next_sibling()`
+
+🔹 **parent**
+   - Description: Access the parent element in the DOM
+   - Code Example: `parent = element.parent`
+
+🔹 **post()**
+   - Description: Send a POST request to submit data
+   - Code Example: `response = requests.post(url, data={"key": "value"})`
+
+🔹 **put()**
+   - Description: Send a PUT request to update data
+   - Code Example: `response = requests.put(url, data={"key": "value"})`
+
+🔹 **Query parameters**
+   - Description: Pass query parameters in the URL
+   - Code Example: `params = {"page": 1, "per_page": 10}`
+
+🔹 **select()**
+   - Description: Select HTML elements using CSS selector
+   - Code Example: `element = soup.select("selector")`
+
+🔹 **status_code**
+   - Description: Check HTTP status code of response
+   - Code Example: `status_code = response.status_code`
+
+🔹 **tags for find()/find_all()**
+   - Description: Specify valid HTML tags to search elements
+   - Code Example: `(a), (p), (h1-h6), (table), (tr), (td), (th), (img), (form), (button)`
+
+🔹 **text**
+   - Description: Retrieve the text content of an HTML element
+   - Code Example: `text = element.text`
+
