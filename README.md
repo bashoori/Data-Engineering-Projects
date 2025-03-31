@@ -80,14 +80,5 @@ Here's a breakdown of the key folders and their purpose:
 
 ---
 
-## 👩‍💻 Author
-
-**Bita Ashoori**  
-Computer Engineer | Data Engineer | Digital Marketer  
-📍 Vancouver, Canada  
-🌐 [bitadigitalmarketer.com](https://bitadigitalmarketer.com)
-
----
-
 ⭐️ If you find this repository helpful, feel free to star it and share it with others!
 
