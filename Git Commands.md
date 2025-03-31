@@ -175,6 +175,4 @@ You learned how to:
 > 🔁 Always remember to test in a branch and merge after verification!  
 > 🧠 Use meaningful commit messages to keep track of your work history.
 
----
 
-Made with ❤️ by _Bita_
