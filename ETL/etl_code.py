@@ -3,8 +3,8 @@ import pandas as pd
 import xml.etree.ElementTree as ET 
 from datetime import datetime 
   
-log_file = "log_file.txt" 
-target_file = "transformed_data.csv" 
+log_file = "./ETL/log_file.txt" 
+target_file = "./ETL/transformed_data.csv" 
   
 def extract_from_csv(file_to_process): 
     dataframe = pd.read_csv(file_to_process) 
@@ -50,8 +50,7 @@ def transform(data):
      
     # Convert pounds to kilograms and round off to two decimals 
     # 1 pound is 0.45359237 kilograms 
-    data['weight'] = round(data.weight * 0.45359237,2) 
-     
+    data['weight'] = round(data.weight * 0.45359237,2)      
     return data 
   
 def load_data(target_file, transformed_data): 
