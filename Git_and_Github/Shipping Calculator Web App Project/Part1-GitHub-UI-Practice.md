@@ -83,25 +83,28 @@ Contributions are licensed.
 3. Click on **Choose a code of conduct template**
 4. Select **Contributor Covenant** (Recommended for projects of all sizes)
 
-![Contributor Covenant Screenshot](sandbox:/mnt/data/Task3_Contributor_Covenant.png)
+Your `CODE_OF_CONDUCT.md` will include the following:
+```markdown
+# Contributor Covenant Code of Conduct
+
+## Our Pledge
+
+We as members, contributors, and leaders pledge to make participation in our community a harassment-free experience for everyone, regardless of age, body size, visible or invisible disability, ethnicity, sex characteristics, gender identity and expression, level of experience, education, socio-economic status, nationality, personal appearance, race, religion, or sexual identity and orientation.
+
+We pledge to act and interact in ways that contribute to an open, welcoming, diverse, inclusive, and healthy community.
+
+## Our Standards
+
+Examples of behavior that contributes to a positive environment for our community include:
+
+- Demonstrating empathy and kindness toward other people
+- Being respectful of differing opinions, viewpoints, and experiences
+```
 
 5. Fill in the **Contact method** field if required
 6. Click **Review and submit**
 7. Scroll and click **Commit changes** directly to the `main` branch
 
-Your `CODE_OF_CONDUCT.md` will include the following:
-
-### Contributor Covenant Code of Conduct
-
-#### Our Pledge
-We as members, contributors, and leaders pledge to make participation in our community a harassment-free experience for everyone, regardless of age, body size, visible or invisible disability, ethnicity, sex characteristics, gender identity and expression, level of experience, education, socio-economic status, nationality, personal appearance, race, religion, or sexual identity and orientation.
-
-We pledge to act and interact in ways that contribute to an open, welcoming, diverse, inclusive, and healthy community.
-
-#### Our Standards
-Examples of behavior that contributes to a positive environment for our community include:
-- Demonstrating empathy and kindness toward other people
-- Being respectful of differing opinions, viewpoints, and experiences
 
 ✅ You have successfully added a Code of Conduct.
 ---
