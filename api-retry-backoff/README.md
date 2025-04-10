@@ -14,13 +14,13 @@ This project demonstrates a simple yet robust Python function for fetching data 
 Imagine you're pulling data from a public API as part of a daily ETL job. Sometimes the API fails due to server errors or slow response. This script ensures your pipeline doesn't break immediately and tries to recover by retrying with increasing delay.
 
 ## 📁 File Structure
-
+```python
 api-retry-backoff/
 │
 ├── fetch_data.py        # Core retry logic script
 ├── README.md            # Project description and usage
 └── requirements.txt     # Python dependencies
-
+```
 
 ## 🧪 Example
 
