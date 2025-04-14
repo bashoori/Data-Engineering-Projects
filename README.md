@@ -1,10 +1,9 @@
 
-
 # 🏗️ Data Engineering Projects Repository
 
 Welcome to my **Data Engineering Projects** repository! 🎯
 
-This repository showcases hands-on projects in the realm of **Data Engineering**, focusing on real-world implementations of **ETL**, **ELT**, **Web Scraping**, **API Data Extraction**, and **Database Access**.
+This repository showcases hands-on projects in the realm of **Data Engineering**, focusing on real-world implementations of **ETL**, **ELT**, **Web Scraping**, **API Data Extraction**, and **Cloud Automation**.
 
 🧰 Whether you're a fellow data engineer, a learner, or just curious, you’ll find modular, clean, and reusable scripts to help accelerate your journey in data engineering.
 
@@ -12,73 +11,61 @@ This repository showcases hands-on projects in the realm of **Data Engineering**
 
 ## 📁 Repository Structure
 
-Here's a breakdown of the key folders and their purpose:
+### 🕸️ 1. `LinkedIn-Scraping-Projects/`
+Automation tools that extract structured data from LinkedIn profiles and send notifications.
 
-### 📌 1. `DB-Access`
-🔹 Tools and scripts for connecting to and managing various **databases**  
-🔹 Includes SQL queries and database connection utilities using Python
+#### 🔸 `LinkAutoScrape/`
+> A GitHub Codespaces-based LinkedIn scraper powered by Selenium and GitHub Actions. Supports notifications via Telegram or Mailgun.
 
----
-
-### 🌍 2. `ELT on the World's Largest Banks`
-🔹 ELT pipeline that processes and analyzes financial data from the **world's largest banks**  
-🔹 Focus on structured loading and transformation using Python and SQL
-
----
-
-### 🌐 3. `ETL on Country GDP Data`
-🔹 Full **ETL workflow** for GDP data across countries  
-🔹 Technologies: Python, Pandas, and structured file handling  
-🔹 Real-world data cleaning and transformation steps
-
----
-
-### ⚙️ 4. `ETL`
-🔹 A collection of **general-purpose ETL scripts**  
-🔹 Reusable Python modules for various ETL tasks  
-🔹 Good starting point for building custom ETL pipelines
-
----
-
-### 🕸️ 5. `Web Scraping and Extracting Data using APIs`
-🔹 Projects that demonstrate **web scraping** using `BeautifulSoup`, `requests`, etc.  
-🔹 Examples of extracting structured data via **public APIs**  
-🔹 Data pulled is cleaned, transformed, and stored for further use
-
----
-
-### 🧱 6. `Template for ETL Operations Script`
-🔹 A ready-to-use **template** to jumpstart your ETL development  
-🔹 Standardizes structure for source ingestion, transformation, and loading
+Includes:
+- `scraper.py` – Core scraper using Selenium
+- `scraper_with_telegram.py` – Sends success/failure alerts to Telegram
+- Markdown guides for:
+  - `Mailgun_Email_Notification_Setup.md`
+  - `Telegram_Notification_Setup.md`
+  - `Output_Automation_Enhancements.md`
+- Workflow automation: `.github/workflows/scrape.yml`
+- Output file: `linkedin_results.csv`
 
 ---
 
 ## 🚀 How to Use This Repository
 
 1. Clone the repository:
-   ```bash
-   git clone https://github.com/bashoori/Data-Engineering-Projects.git
-   ```
+```bash
+git clone https://github.com/bashoori/Data-Engineering-Projects.git
+```
 
-2. Navigate to any project folder:
-   ```bash
-   cd Data-Engineering-Projects/ETL\ on\ Country\ GDP\ Data
-   ```
+2. Open a project in Codespaces:
+```bash
+cd Data-Engineering-Projects/LinkedIn-Scraping-Projects/LinkAutoScrape
+```
 
-3. Follow the README (if available) inside each folder for instructions on setup and execution.
-
----
-
-## 📚 Tech Stack
-
-- Python 🐍
-- Pandas & NumPy
-- SQL (PostgreSQL, SQLite)
-- APIs (REST)
-- Web Scraping (BeautifulSoup, Requests)
-- Jupyter Notebooks 📓
+3. Follow the guides inside each folder to configure, run, or automate the project.
 
 ---
 
-⭐️ If you find this repository helpful, feel free to star it and share it with others!
+## 🧰 Tech Stack
+- Python 🐍 (Selenium, Pandas, Requests)
+- GitHub Codespaces
+- GitHub Actions
+- Telegram Bot API
+- Mailgun Email API
+- Markdown & Diagrams
 
+---
+
+## ✨ Upcoming Projects
+- ETL pipelines with AWS (Glue, Redshift, S3)
+- Stream processing with Kafka & Spark
+- Data warehousing demos (Snowflake)
+- Real-world dashboards & reporting flows
+
+---
+
+## 📌 About This Work
+This repo reflects my passion for smart automation and scalable data workflows. All projects are built to demonstrate technical excellence, real-world readiness, and clean automation design.
+
+---
+
+> ⭐️ If you find this repository helpful, feel free to star it and share it with others!
