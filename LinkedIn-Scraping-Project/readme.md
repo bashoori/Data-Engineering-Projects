@@ -1,26 +1,3 @@
-# 🔗 LinkInsight
-
-**LinkInsight** is a Python-based scraping tool designed to extract structured, actionable data from LinkedIn profiles and company pages. It's perfect for recruiters, market researchers, and business intelligence teams that need a steady flow of professional data — delivered in a clean and automated way.
-
-### 💡 Features:
-- Scrapes public and logged-in LinkedIn profile information
-- Extracts company metadata (size, industry, employees, etc.)
-- Stores results in CSV or Google Sheets
-- Built with Selenium for browser automation
-- Includes smart delay, error handling, and IP-safe practices
-- Extendable to Make.com and Airtable integration
-
-> ⚠️ Built for ethical use. Do not use to violate LinkedIn's TOS.
-
----
-
-### 🧰 Tech Stack
-- Python 3.10+
-- Selenium
-- BeautifulSoup
-- Pandas
-- Google Sheets API (optional)
-
 
 # 🔗 LinkInsight
 
