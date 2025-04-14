@@ -3,6 +3,8 @@
 Mailgun is a cloud-based email delivery service that lets developers and businesses send emails through their apps or scripts, using a simple API or SMTP.
 Add automatic email notifications to your LinkedIn scraping script using Mailgun's free tier. No Gmail passwords or Google Cloud needed.
 
+
+
 It’s widely used for:
 	•	Sending automated emails from Python scripts 💻
 	•	Notifying users when a job finishes 📢
