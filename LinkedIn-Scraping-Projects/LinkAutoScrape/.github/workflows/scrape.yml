@@ -1,15 +1,10 @@
-on:
-  workflow_dispatch:  # 👈 allows you to run the workflow from GitHub's UI
-  schedule:
-    - cron: '0 9 * * *'  # Daily at 9 AM UTC
-
-
 name: Daily LinkedIn Scrape
 
 on:
+  workflow_dispatch:   # 👈 This line enables the manual trigger
   schedule:
-    - cron: '0 9 * * *'  # Runs every day at 9 AM UTC
-  workflow_dispatch:    # Allow manual run from GitHub
+    - cron: '0 9 * * *'  # Daily at 9 AM UTC
+
 
 jobs:
   run-scraper:
