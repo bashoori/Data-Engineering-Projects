@@ -1,3 +1,10 @@
+#pip install selenium
+#$ pip install -r LinkedIn-Scraping-Projects/LinkAutoScrape/requirements.txt
+#pip freeze > requirements.txt
+#
+
+
+
 import os
 import time
 import pandas as pd
