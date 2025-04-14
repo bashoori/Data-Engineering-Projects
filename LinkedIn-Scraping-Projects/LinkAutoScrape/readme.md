@@ -1,15 +1,33 @@
+# 🔗 LinkAutoScrape – Cloud-Based LinkedIn Scraper
+
+A GitHub Codespaces-powered LinkedIn scraper that extracts profile data using Selenium, automates runs using GitHub Actions, and sends real-time notifications via Telegram or Mailgun.
+
+![Scraper Run Status](https://img.shields.io/github/actions/workflow/status/bashoori/Data-Engineering-Projects/scrape.yml?label=Scraper%20Run&logo=github)
+![Made with Python](https://img.shields.io/badge/Made%20with-Python-blue?logo=python)
+![Automation](https://img.shields.io/badge/Automation-GitHub%20Actions-blue?logo=githubactions)
+
+---
+
+## 📸 Sample Output
+![Sample Output CSV](https://github.com/bashoori/Data-Engineering-Projects/raw/main/LinkedIn-Scraping-Projects/LinkAutoScrape/assets/sample-output.png)
+
+> The scraper creates a clean `linkedin_results.csv` file with name, headline, and more (extendable).
+
+
+---
+
 # 📄 LinkedIn Profile Scraper
 
 A cloud-based Python automation project that scrapes LinkedIn profile information using **Selenium**, runs entirely in **GitHub Codespaces**, and is scheduled to execute daily using **GitHub Actions**. Scraped data is saved in a structured CSV file for analysis, reporting, or integration with Google Sheets.
 
 ---
 
-## 🚀 Features
-- Scrapes name and job title from LinkedIn public profiles
-- Written and tested entirely in **GitHub Codespaces** (no local setup required)
-- **Automated daily execution** with GitHub Actions
-- Saves data into a `linkedin_results.csv` file
-- Lightweight, headless browser automation using Selenium
+## 🛠 Features
+- ✅ Headless scraping of LinkedIn profiles (no UI needed)
+- ✅ Automated scheduled runs via GitHub Actions
+- ✅ CSV export of profile data
+- ✅ Notification via Telegram or Mailgun
+- ✅ Works fully in the cloud (no local setup required)
 
 ---
 
@@ -35,67 +53,24 @@ linkedin-scraper/
 
 ---
 
-## 🔧 Setup Instructions
 
-### 1. Clone the Repository & Open Codespace
-```bash
-git clone https://github.com/yourusername/linkedin-scraper.git
-cd linkedin-scraper
-```
-Then open it as a **Codespace** from GitHub.
-
-### 2. Add Your LinkedIn URLs to `scraper.py`
-Replace the placeholder URLs in the script with real profile URLs you want to scrape.
-
-### 3. Add Dependencies
-Create `requirements.txt`:
-```
-selenium
-pandas
-```
-
-### 4. Configure GitHub Actions Scheduler
-Add this file: `.github/workflows/scrape.yml`
-```yaml
-name: Daily LinkedIn Scrape
-
-on:
-  schedule:
-    - cron: '0 9 * * *'  # every day at 9 AM UTC
-  workflow_dispatch:
-
-jobs:
-  run-scraper:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-python@v4
-        with:
-          python-version: '3.10'
-      - run: pip install -r requirements.txt
-      - run: python scraper.py
-```
+## 📁 Files Included
+- `scraper.py` – Main scraper logic
+- `scraper_with_telegram.py` – Sends Telegram alerts
+- `.github/workflows/scrape.yml` – CI/CD config for daily runs
+- `linkedin_results.csv` – Output file sample
+- `Mailgun_Email_Notification_Setup.md`
+- `Telegram_Notification_Setup.md`
+- `Output_Automation_Enhancements.md`
 
 ---
 
-## 📊 Output
-- The script creates a `linkedin_results.csv` file in the repo root.
-- Columns include `URL`, `Name`, `Headline`
+## 💡 How to Run
+1. Open in GitHub Codespaces or clone locally
+2. Install dependencies
+3. Replace placeholder URLs and tokens
+4. Run the script or trigger via GitHub Actions
 
 ---
 
-## 📌 Notes
-- You must run the scraper **headless** to work with GitHub Actions.
-- For full profile data (like work history), login automation or cookies may be needed (⚠️ use responsibly).
-
----
-
-## ✅ TODO / Improvements
-- [ ] Add Google Sheets export via API
-- [ ] Add rotating LinkedIn session cookies
-- [ ] Add logging and error handling
-
----
-
-## 📬 Contact
-Created by [Bita Ashoori](mailto:bitadigitalmarketer@gmail.com) — feel free to reach out for custom scraping or automation projects!
+> 📌 A simple but powerful example of real-world scraping + automation!
