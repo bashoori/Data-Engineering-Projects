@@ -47,7 +47,9 @@ results = []
 
 # --- Generate a timestamped filename for the output CSV ---
 timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-filename = f'linkedin_results_{timestamp}.csv'
+folder_path = "LinkedIn-Scraping-Projects/LinkAutoScrape"
+os.makedirs(folder_path, exist_ok=True)  # Create folder if it doesn't exist
+filename = f'{folder_path}/linkedin_results_{timestamp}.csv'
 
 try:
     # --- Loop through each LinkedIn URL ---
