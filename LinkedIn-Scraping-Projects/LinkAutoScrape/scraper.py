@@ -28,4 +28,4 @@ for url in urls:
 driver.quit()
 
 df = pd.DataFrame(results)
-df.to_csv('linkedin_results.csv', index=False)
+df.to_csv('LinkedIn-Scraping-Projects/LinkAutoScrape/output/linkedin_results.csv', index=False)

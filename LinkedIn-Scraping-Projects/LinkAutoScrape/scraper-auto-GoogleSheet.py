@@ -52,7 +52,7 @@ results = []
 
 # Generate a timestamp for logging and filename
 timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-folder_path = "LinkedIn-Scraping-Projects/LinkAutoScrape"
+folder_path = "LinkedIn-Scraping-Projects/LinkAutoScrape/output"
 os.makedirs(folder_path, exist_ok=True)  # Create folder if it doesn't exist
 filename = f'{folder_path}/linkedin_results_{timestamp}.csv'
 
