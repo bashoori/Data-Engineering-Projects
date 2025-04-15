@@ -20,9 +20,20 @@ import gspread
 from oauth2client.service_account import ServiceAccountCredentials
 import os
 import re
+import json
+
+
+# ---------------------------------------------------
+# 🔐 Recreate credentials.json from GitHub Secrets
+# This allows secure use in GitHub Actions or Codespaces
+# ---------------------------------------------------
+if os.getenv("GOOGLE_CREDENTIALS_JSON"):
+    with open("credentials.json", "w") as f:
+        f.write(os.getenv("GOOGLE_CREDENTIALS_JSON"))
+
 
 # -------------------------
-# Setup Telegram Bot
+# 📬 Telegram Bot Setup
 # -------------------------
 TELEGRAM_BOT_TOKEN = os.getenv("TELEGRAM_BOT_TOKEN")
 TELEGRAM_CHAT_ID = os.getenv("TELEGRAM_CHAT_ID")
@@ -34,7 +45,7 @@ def send_telegram_message(text):
     requests.post(url, data=payload)
 
 # -------------------------
-# Setup Google Sheets Client
+# 📄 Setup Google Sheets Client
 # -------------------------
 # Requires a credentials.json file from Google Cloud Console with Sheets API enabled
 scope = ["https://spreadsheets.google.com/feeds", "https://www.googleapis.com/auth/drive"]
@@ -45,7 +56,7 @@ client = gspread.authorize(creds)
 sheet = client.open("eBay Products").sheet1
 
 # -------------------------
-# Price Cleaning Utility
+# 💰 Price Cleaning Utility
 # -------------------------
 def clean_price(price_str):
     """Remove currency symbols and convert price string to float."""
@@ -56,7 +67,7 @@ def clean_price(price_str):
         return None
 
 # -------------------------
-# Scrape eBay for Products
+# 🔍 Scrape eBay for Products
 # -------------------------
 search_term = "laptop"
 url = f"https://www.ebay.com/sch/i.html?_nkw={search_term}"
@@ -67,7 +78,7 @@ soup = BeautifulSoup(response.text, "html.parser")
 items = soup.select(".s-item")
 
 # -------------------------
-# Extract and Process Data
+# 🧹 Extract and Process Data
 # -------------------------
 count = 0
 for item in items:
@@ -86,7 +97,7 @@ for item in items:
             count += 1
 
 # -------------------------
-# Send Summary via Telegram
+# ✅ Send Summary via Telegram
 # -------------------------
 message = f"✅ {count} products from eBay added to Google Sheets!\nSearch term: {search_term}"
 send_telegram_message(message)
