@@ -51,11 +51,6 @@ This Markdown file provides a visual representation (in text format) of the auto
 
 ---
 
-✅ You can recreate this layout in Canva, draw.io, or Lucidchart for a polished visual version.
-
-
-
----
 
 ## Features
 - Scrapes product title, price, and link from eBay search results
