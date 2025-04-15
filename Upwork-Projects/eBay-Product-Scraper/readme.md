@@ -67,3 +67,32 @@ You can run this script daily using GitHub Actions or a cronjob on your server.
 ---
 
 No credit card or paid service required. This solution is 100% free and beginner-friendly.
+
+
+---
+
+# 🛠️ Next Steps (in Codespaces or Locally)
+
+Follow these instructions to get the project running:
+
+1. **Unzip the project**  
+   Extract the downloaded `.zip` file to your workspace.
+
+2. **Install dependencies**  
+   Make sure Python is installed, then run:
+   ```bash
+   pip install -r requirements.txt
+   ```
+
+3. **Add your `.env` file**  
+   Use `.env.example` as a guide to create your actual `.env` file with your Telegram credentials.
+
+4. **Add your `credentials.json` file**  
+   Download it from your Google Cloud Console and place it in the project root directory.
+
+5. **Run the script**
+   ```bash
+   python ebay_to_gsheets_telegram.py
+   ```
+
+That's it! Your scraper will send product data to Google Sheets and notify you via Telegram.

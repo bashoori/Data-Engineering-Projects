@@ -1,3 +1,4 @@
+#Dependencies list for pip install
 requests
 gspread
 oauth2client
