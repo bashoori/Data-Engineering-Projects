@@ -4,16 +4,29 @@ This Python script scrapes products from eBay and saves them directly into a **G
 After the data is added, it also sends a **Telegram message** to notify you.
 
 
-🛒 eBay Product Page
-        ↓
-🤖 Python Script
-(Cleans data + scrapes)
-        ↓
-📄 Google Sheets
-(Store: Title, Price, Link)
-        ↓
-📬 Telegram Notification
-(Send summary to coach)
++------------------------+
+|  🛒 eBay Search Page    |
+|  (source of products)  |
++------------------------+
+            |
+            v
++---------------------------+
+|  🤖 Python Scraper Script  |
+|  - Clean & extract data   |
++---------------------------+
+            |
+            v
++------------------------+
+|  📄 Google Sheets       |
+|  (store Title, Price,  |
+|   and Product Link)    |
++------------------------+
+            |
+            v
++--------------------------+
+|  📬 Telegram Notification |
+|  - Sends update to coach |
++--------------------------+
 
 
 ---
