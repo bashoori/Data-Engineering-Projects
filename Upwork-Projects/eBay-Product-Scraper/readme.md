@@ -4,6 +4,15 @@ This Python script scrapes products from eBay and saves them directly into a **G
 After the data is added, it also sends a **Telegram message** to notify you.
 
 
+# 🗺️ Workflow Diagram: eBay Product Scraper Automation
+
+This Markdown file provides a visual representation (in text format) of the automation flow for scraping eBay products, storing them in Google Sheets, and sending a Telegram notification.
+
+---
+
+## 📊 Visual Flow
+
+```
 +------------------------+
 |  🛒 eBay Search Page    |
 |  (source of products)  |
@@ -27,6 +36,23 @@ After the data is added, it also sends a **Telegram message** to notify you.
 |  📬 Telegram Notification |
 |  - Sends update to coach |
 +--------------------------+
+```
+
+---
+
+## 🔤 Labels for Each Block
+
+| Step                | Description                                 |
+|---------------------|---------------------------------------------|
+| **eBay Search**     | The source of product listings              |
+| **Python Scraper**  | A script that scrapes and cleans the data   |
+| **Google Sheets**   | Data storage for product details            |
+| **Telegram Bot**    | Sends a summary notification to the coach   |
+
+---
+
+✅ You can recreate this layout in Canva, draw.io, or Lucidchart for a polished visual version.
+
 
 
 ---
