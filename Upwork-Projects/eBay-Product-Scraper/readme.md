@@ -1,105 +1,39 @@
-# eBay Product Scraper to Google Sheets + Telegram Notification
+# 📦 eBay Product Scraper → Google Sheets + Telegram
 
-This Python script scrapes products from eBay and saves them directly into a **Google Sheets** spreadsheet.  
-After the data is added, it also sends a **Telegram message** to notify you.
-
-
-# 🗺️ Workflow Diagram: eBay Product Scraper Automation
-
-This Markdown file provides a visual representation (in text format) of the automation flow for scraping eBay products, storing them in Google Sheets, and sending a Telegram notification.
+This project scrapes product listings from eBay, stores them in a Google Sheet, and sends you a Telegram notification.  
+It supports both local development and automated GitHub Actions workflows.
 
 ---
 
-## 📊 Visual Flow
+## ✅ Features
 
-```
-+------------------------+
-|  🛒 eBay Search Page    |
-|  (source of products)  |
-+------------------------+
-            |
-            v
-+---------------------------+
-|  🤖 Python Scraper Script  |
-|  - Clean & extract data   |
-+---------------------------+
-            |
-            v
-+------------------------+
-|  📄 Google Sheets       |
-|  (store Title, Price,  |
-|   and Product Link)    |
-+------------------------+
-            |
-            v
-+--------------------------+
-|  📬 Telegram Notification |
-|  - Sends update to coach |
-+--------------------------+
-```
+- Web scraping with BeautifulSoup
+- Google Sheets integration via service account
+- Telegram bot notification
+- Secrets managed securely via .env or GitHub Secrets
 
 ---
 
-## 🔤 Labels for Each Block
+## 🛠 Local Setup
 
-| Step                | Description                                 |
-|---------------------|---------------------------------------------|
-| **eBay Search**     | The source of product listings              |
-| **Python Scraper**  | A script that scrapes and cleans the data   |
-| **Google Sheets**   | Data storage for product details            |
-| **Telegram Bot**    | Sends a summary notification to the coach   |
-
----
-
-
-## Features
-- Scrapes product title, price, and link from eBay search results
-- Cleans and standardizes price format
-- Stores valid products in Google Sheets
-- Sends notification via Telegram Bot to alert about new products
-
----
-
-## Requirements
-
-Install dependencies with:
+1. Install dependencies:
 
 ```bash
-pip install gspread oauth2client beautifulsoup4 requests
+pip install -r requirements.txt
 ```
 
----
-
-## Setup Instructions
-
-### 1. Create Google Sheet
-- Create a sheet titled **eBay Products**
-- Make sure the first worksheet has 3 columns: `Title`, `Price`, `Link`
-
-### 2. Enable Google Sheets API
-- Go to [Google Cloud Console](https://console.cloud.google.com/)
-- Create a new project
-- Enable **Google Sheets API** and **Google Drive API**
-- Create a Service Account and download the `credentials.json` file
-- Share your Google Sheet with the Service Account email (e.g., `my-bot@project.iam.gserviceaccount.com`)
-
-Place the `credentials.json` file in the root folder next to your Python script.
-
----
-
-### 3. Set up Telegram Bot
-- Create a bot using [@BotFather](https://t.me/BotFather)
-- Get your Bot Token and Chat ID
-- Set the following environment variables:
+2. Create a `.env` file:
 
 ```bash
-export TELEGRAM_BOT_TOKEN=your_bot_token
-export TELEGRAM_CHAT_ID=your_chat_id
+cp .env.example .env
 ```
 
----
+3. Fill in the values inside `.env`:
+   - Your Telegram bot token
+   - Your chat ID
+   - Your full Google `credentials.json` content (on one line)
 
-### 4. Run the Script
+4. Run the script:
 
 ```bash
 python ebay_to_gsheets_telegram.py
@@ -107,39 +41,39 @@ python ebay_to_gsheets_telegram.py
 
 ---
 
-## Optional: Automate with GitHub Actions or Cron
+## 🚀 GitHub Actions Setup
 
-You can run this script daily using GitHub Actions or a cronjob on your server.
+1. Add the following secrets in your GitHub repo:
+
+| Secret Name             | Description                             |
+|--------------------------|-----------------------------------------|
+| `GOOGLE_CREDENTIALS_JSON` | JSON content of your credentials file |
+| `TELEGRAM_BOT_TOKEN`      | Your Telegram bot token               |
+| `TELEGRAM_CHAT_ID`        | Your Telegram chat ID or group ID     |
+
+2. Create a GitHub Actions workflow (see docs or ask me for template).
 
 ---
 
-No credit card or paid service required. This solution is 100% free and beginner-friendly.
+## 🔐 Security Notes
 
+- `.env` is excluded via `.gitignore` to prevent secret exposure.
+- `.env.example` is safe to commit as a reference.
 
 ---
 
-# 🛠️ Next Steps (in Codespaces or Locally)
+## 📄 License
 
-Follow these instructions to get the project running:
+MIT — use freely, credit appreciated.
 
-1. **Unzip the project**  
-   Extract the downloaded `.zip` file to your workspace.
 
-2. **Install dependencies**  
-   Make sure Python is installed, then run:
-   ```bash
-   pip install -r requirements.txt
-   ```
 
-3. **Add your `.env` file**  
-   Use `.env.example` as a guide to create your actual `.env` file with your Telegram credentials.
-
-4. **Add your `credentials.json` file**  
-   Download it from your Google Cloud Console and place it in the project root directory.
-
-5. **Run the script**
-   ```bash
-   python ebay_to_gsheets_telegram.py
-   ```
-
-That's it! Your scraper will send product data to Google Sheets and notify you via Telegram.
+ebay_scraper_with_env_doc/
+├── ebay_to_gsheets_telegram.py       ✅ Main script with dotenv support
+├── requirements.txt                  📦 Dependencies
+├── .env.example                      🔐 Env template (safe to commit)
+├── .gitignore                        🚫 Hides secrets & temp files
+├── README.md                         📘 Full usage guide
+└── .github/
+    └── workflows/
+        └── scraper.yml              🕒 GitHub Actions automation

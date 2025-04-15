@@ -1,13 +1,15 @@
 """
 eBay Product Scraper → Google Sheets + Telegram Notifier
 ---------------------------------------------------------
-This script scrapes product data from eBay search results,
-cleans the prices, saves the data into a Google Sheet,
-and sends a summary notification to Telegram.
+This script scrapes product data from eBay, cleans the prices,
+saves it to a Google Sheet, and notifies via Telegram Bot.
 
-✅ Designed for GitHub Actions:
-- Reads Google API credentials from GOOGLE_CREDENTIALS_JSON secret
-- Sends Telegram message using BOT_TOKEN and CHAT_ID
+Supports both:
+- Local development using .env file and python-dotenv
+- GitHub Actions with secrets injected via environment variables
+
+Author: Bita
+License: MIT
 """
 
 import requests
@@ -17,41 +19,44 @@ from oauth2client.service_account import ServiceAccountCredentials
 import os
 import re
 import json
+from dotenv import load_dotenv
+
+# Load local environment variables from .env file (only used in local dev)
+load_dotenv()
 
 # -------------------------
-# Setup Telegram Bot
+# Telegram Configuration
 # -------------------------
 TELEGRAM_BOT_TOKEN = os.getenv("TELEGRAM_BOT_TOKEN")
 TELEGRAM_CHAT_ID = os.getenv("TELEGRAM_CHAT_ID")
 
 def send_telegram_message(text):
-    """Send a message to your Telegram chat via Bot API."""
+    """Send a message via Telegram Bot API."""
     url = f"https://api.telegram.org/bot{TELEGRAM_BOT_TOKEN}/sendMessage"
     payload = {"chat_id": TELEGRAM_CHAT_ID, "text": text}
     requests.post(url, data=payload)
 
 # -------------------------
-# Setup Google Sheets Client using GitHub Secret for credentials
+# Google Sheets Setup
 # -------------------------
 credentials_json = os.getenv("GOOGLE_CREDENTIALS_JSON")
 if not credentials_json:
     raise ValueError("GOOGLE_CREDENTIALS_JSON not found in environment variables!")
 
-# Write credentials to temporary file
+# Save credentials to a temporary file
 with open("credentials.json", "w") as f:
     json.dump(json.loads(credentials_json), f)
 
-# Authenticate and connect to sheet
 scope = ["https://spreadsheets.google.com/feeds", "https://www.googleapis.com/auth/drive"]
 creds = ServiceAccountCredentials.from_json_keyfile_name("credentials.json", scope)
 client = gspread.authorize(creds)
 sheet = client.open("eBay Products").sheet1
 
 # -------------------------
-# Price Cleaning Utility
+# Utility: Clean price string
 # -------------------------
 def clean_price(price_str):
-    """Remove currency symbols and convert price string to float."""
+    """Clean currency symbols and convert to float."""
     price = re.sub(r'[^\d.]', '', price_str)
     try:
         return float(price)
@@ -59,18 +64,24 @@ def clean_price(price_str):
         return None
 
 # -------------------------
-# Scrape eBay for Products
+# Scrape eBay Listings
 # -------------------------
-search_term = "laptop"
+#search_term = "laptop"
+search_term = "wireless mouse"
+
 url = f"https://www.ebay.com/sch/i.html?_nkw={search_term}"
 headers = {"User-Agent": "Mozilla/5.0"}
 
 response = requests.get(url, headers=headers)
 soup = BeautifulSoup(response.text, "html.parser")
+
+with open("ebay.html", "w") as f:
+    f.write(soup.prettify())
+
 items = soup.select(".s-item")
 
 # -------------------------
-# Extract and Process Data
+# Extract and store results
 # -------------------------
 count = 0
 for item in items:
@@ -89,8 +100,8 @@ for item in items:
             count += 1
 
 # -------------------------
-# Send Summary via Telegram
+# Notify via Telegram
 # -------------------------
-message = f"✅ {count} products from eBay added to Google Sheets!\\nSearch term: {search_term}"
+message = f"✅ {count} products from eBay added to Google Sheets!\nSearch term: {search_term}"
 send_telegram_message(message)
 print(message)
