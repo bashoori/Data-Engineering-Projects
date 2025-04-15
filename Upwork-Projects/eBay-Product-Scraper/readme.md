@@ -1,0 +1,69 @@
+# eBay Product Scraper to Google Sheets + Telegram Notification
+
+This Python script scrapes products from eBay and saves them directly into a **Google Sheets** spreadsheet.  
+After the data is added, it also sends a **Telegram message** to notify you.
+
+---
+
+## Features
+- Scrapes product title, price, and link from eBay search results
+- Cleans and standardizes price format
+- Stores valid products in Google Sheets
+- Sends notification via Telegram Bot to alert about new products
+
+---
+
+## Requirements
+
+Install dependencies with:
+
+```bash
+pip install gspread oauth2client beautifulsoup4 requests
+```
+
+---
+
+## Setup Instructions
+
+### 1. Create Google Sheet
+- Create a sheet titled **eBay Products**
+- Make sure the first worksheet has 3 columns: `Title`, `Price`, `Link`
+
+### 2. Enable Google Sheets API
+- Go to [Google Cloud Console](https://console.cloud.google.com/)
+- Create a new project
+- Enable **Google Sheets API** and **Google Drive API**
+- Create a Service Account and download the `credentials.json` file
+- Share your Google Sheet with the Service Account email (e.g., `my-bot@project.iam.gserviceaccount.com`)
+
+Place the `credentials.json` file in the root folder next to your Python script.
+
+---
+
+### 3. Set up Telegram Bot
+- Create a bot using [@BotFather](https://t.me/BotFather)
+- Get your Bot Token and Chat ID
+- Set the following environment variables:
+
+```bash
+export TELEGRAM_BOT_TOKEN=your_bot_token
+export TELEGRAM_CHAT_ID=your_chat_id
+```
+
+---
+
+### 4. Run the Script
+
+```bash
+python ebay_to_gsheets_telegram.py
+```
+
+---
+
+## Optional: Automate with GitHub Actions or Cron
+
+You can run this script daily using GitHub Actions or a cronjob on your server.
+
+---
+
+No credit card or paid service required. This solution is 100% free and beginner-friendly.
