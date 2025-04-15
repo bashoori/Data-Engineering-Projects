@@ -3,6 +3,19 @@
 This Python script scrapes products from eBay and saves them directly into a **Google Sheets** spreadsheet.  
 After the data is added, it also sends a **Telegram message** to notify you.
 
+
+🛒 eBay Product Page
+        ↓
+🤖 Python Script
+(Cleans data + scrapes)
+        ↓
+📄 Google Sheets
+(Store: Title, Price, Link)
+        ↓
+📬 Telegram Notification
+(Send summary to coach)
+
+
 ---
 
 ## Features
