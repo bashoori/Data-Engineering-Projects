@@ -5,12 +5,16 @@ This script scrapes product data from eBay search results,
 cleans the prices, saves the data into a Google Sheet,
 and sends a summary notification to Telegram.
 
+This version is adapted to run in environments like GitHub Actions,
+where the Google credentials are stored as an environment variable
+(e.g., in GitHub Secrets).
+
 Tools Used:
 - BeautifulSoup for scraping
 - gspread + oauth2client for Google Sheets integration
 - Telegram Bot API for notification
 
-Author: Your Name
+Author: Bita
 License: MIT
 """
 
@@ -22,18 +26,8 @@ import os
 import re
 import json
 
-
-# ---------------------------------------------------
-# 🔐 Recreate credentials.json from GitHub Secrets
-# This allows secure use in GitHub Actions or Codespaces
-# ---------------------------------------------------
-if os.getenv("GOOGLE_CREDENTIALS_JSON"):
-    with open("credentials.json", "w") as f:
-        f.write(os.getenv("GOOGLE_CREDENTIALS_JSON"))
-
-
 # -------------------------
-# 📬 Telegram Bot Setup
+# Setup Telegram Bot
 # -------------------------
 TELEGRAM_BOT_TOKEN = os.getenv("TELEGRAM_BOT_TOKEN")
 TELEGRAM_CHAT_ID = os.getenv("TELEGRAM_CHAT_ID")
@@ -45,18 +39,28 @@ def send_telegram_message(text):
     requests.post(url, data=payload)
 
 # -------------------------
-# 📄 Setup Google Sheets Client
+# Setup Google Sheets Client using GitHub Secret for credentials
 # -------------------------
-# Requires a credentials.json file from Google Cloud Console with Sheets API enabled
+# GOOGLE_CREDENTIALS_JSON must contain the full content of credentials.json as a string
+credentials_json = os.getenv("GOOGLE_CREDENTIALS_JSON")
+
+if not credentials_json:
+    raise ValueError("GOOGLE_CREDENTIALS_JSON not found in environment variables!")
+
+# Write temporary credentials.json
+with open("credentials.json", "w") as f:
+    json.dump(json.loads(credentials_json), f)
+
+# Authenticate with gspread
 scope = ["https://spreadsheets.google.com/feeds", "https://www.googleapis.com/auth/drive"]
 creds = ServiceAccountCredentials.from_json_keyfile_name("credentials.json", scope)
 client = gspread.authorize(creds)
 
-# Open the Google Sheet
+# Open target Google Sheet
 sheet = client.open("eBay Products").sheet1
 
 # -------------------------
-# 💰 Price Cleaning Utility
+# Price Cleaning Utility
 # -------------------------
 def clean_price(price_str):
     """Remove currency symbols and convert price string to float."""
@@ -67,7 +71,7 @@ def clean_price(price_str):
         return None
 
 # -------------------------
-# 🔍 Scrape eBay for Products
+# Scrape eBay for Products
 # -------------------------
 search_term = "laptop"
 url = f"https://www.ebay.com/sch/i.html?_nkw={search_term}"
@@ -78,7 +82,7 @@ soup = BeautifulSoup(response.text, "html.parser")
 items = soup.select(".s-item")
 
 # -------------------------
-# 🧹 Extract and Process Data
+# Extract and Process Data
 # -------------------------
 count = 0
 for item in items:
@@ -97,7 +101,7 @@ for item in items:
             count += 1
 
 # -------------------------
-# ✅ Send Summary via Telegram
+# Send Summary via Telegram
 # -------------------------
 message = f"✅ {count} products from eBay added to Google Sheets!\nSearch term: {search_term}"
 send_telegram_message(message)
