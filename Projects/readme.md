@@ -1,14 +1,14 @@
-# 💼 Projects – Data Engineering Portfolio
+# 💼 Data Engineering Portfolio
 
-Welcome to my **Upwork Data Engineering Portfolio** – a showcase of real-world freelance projects built using Python, APIs, automation, and modern data tools.
+Welcome to my ** Data Engineering Portfolio** – a showcase of real-world freelance projects built using Python, APIs, automation, and modern data tools.
 
 > 📍 This repo is part of my [Data Engineering Projects](https://github.com/bashoori/Data-Engineering-Projects) collection.
 
 ---
 
-## 📁 Folder: `Upwork-Projects/`
+## 📁 Folder: `Projects/`
 
-This folder contains a series of hands-on, client-facing projects I’ve delivered via freelance work on platforms like **Upwork**.
+This folder contains a series of hands-on, client-facing projects I’ve delivered via freelance work on platforms 
 
 Each subfolder includes:
 - ✅ **Python scripts** for scraping, cleaning, automating, or moving data
@@ -53,7 +53,7 @@ Scrapes LinkedIn Guest API for job postings:
 - 🧑‍💻 Practice & display **freelance-ready skills**
 - 💼 Show understanding of **real client needs**
 - 🧪 Build reusable and scalable **data pipelines**
-- 🎯 Get better at **quick delivery** for Upwork-style jobs
+- 🎯 Get better at **quick delivery** for style jobs
 
 ---
 
