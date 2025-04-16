@@ -1,4 +1,4 @@
-# 💼 Upwork Projects – Data Engineering Portfolio
+# 💼 Projects – Data Engineering Portfolio
 
 Welcome to my **Upwork Data Engineering Portfolio** – a showcase of real-world freelance projects built using Python, APIs, automation, and modern data tools.
 
