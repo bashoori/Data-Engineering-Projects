@@ -62,7 +62,21 @@ with open("credentials.json", "w") as f:
 scope = ["https://spreadsheets.google.com/feeds", "https://www.googleapis.com/auth/drive"]
 creds = ServiceAccountCredentials.from_json_keyfile_name("credentials.json", scope)
 client = gspread.authorize(creds)
-sheet = client.open("eBay Products").sheet1
+#sheet = client.open("eBay Products").sheet1
+spreadsheet = client.open("bita-projects")
+
+# Create the worksheet if it doesn't exist
+try:
+    sheet = spreadsheet.worksheet("eBay-products")
+except gspread.exceptions.WorksheetNotFound:
+    print("🔧 Worksheet 'eBay-products' not found. Creating it now...")
+    sheet = spreadsheet.add_worksheet(title="eBay-products", rows="500", cols="20")
+
+# Clear old data and set headers
+sheet.clear()
+headers_row = ["Title", "Price", "link", "Link", "Timestamp"]
+sheet.append_row(headers_row)
+
 
 # -----------------------------
 # Utility: clean price string
